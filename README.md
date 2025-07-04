@@ -1,1 +1,2 @@
 # HOTals
+# Hotels
