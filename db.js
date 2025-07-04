@@ -1,5 +1,7 @@
 const mongooes = require('mongoose');
-const mongoURL = process.env.MONGO_URL || process.env.LOCAL;
+// const mongoURL = procrss.env.LOCAL;
+const mongoURL = process.env.MONGOURL;
+
 mongooes.connect(mongoURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
