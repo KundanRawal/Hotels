@@ -8,5 +8,8 @@
     "newman": "^6.2.1",
     "nodemon": "^3.1.10",
     "router": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/newman": "^5.3.6"
   }
 }
