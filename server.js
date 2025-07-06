@@ -7,8 +7,6 @@ const db = require('./db');
 const person = require('./models/person');
 const menu = require('./models/menu');
 const passport = require('./Auth');
-
-
 const localAuthMiddelware = passport.authenticate('local', { session: false });
 app.use(passport.initialize());
 
