@@ -5,14 +5,26 @@ require('dotenv').config();
 
 const db = require('./db');
 const person = require('./models/person');
-const menuitems = require('./models/menuitems');
+const menu = require('./models/menu');
+const passport = require('./Auth');
+
+
+const localAuthMiddelware = passport.authenticate('local', { session: false });
+app.use(passport.initialize());
+
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
+const logRequest = (req, res, next) => {
+    console.log(`[${new Date().toISOString()}] Request received: ${req.originalUrl}`);
+    next();
+}
+
+app.use(logRequest);
 
 app.get('/', function (req, res) {
-    res.send('Hello World!')
+    res.send('Hotel foods')
 })
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}!`)
@@ -21,5 +33,5 @@ app.listen(port, () => {
 const personrouter = require('./routes/personr');
 app.use('/person', personrouter);
 
-const menuitemrouter = require('./routes/menuitemsr');
-app.use('/menuitem', menuitemrouter);
+const menurouter = require('./routes/menur');
+app.use('/menu', localAuthMiddelware, menurouter);

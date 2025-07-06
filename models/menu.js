@@ -1,8 +1,10 @@
 const mongooes = require('mongoose');
-const menuitemSchema = new mongooes.Schema({
+
+const menuSchema = new mongooes.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     price: {
         type: Number,
@@ -27,6 +29,8 @@ const menuitemSchema = new mongooes.Schema({
     }
 })
 
-const MenuItem = mongooes.model('MenuItem', menuitemSchema);
 
-module.exports = MenuItem;
+
+const Menu = mongooes.model('Menu', menuSchema);
+
+module.exports = Menu;

@@ -1,6 +1,6 @@
 const mongooes = require('mongoose');
-const mongoURL = process.env.MONGOURL;
-//const mongoURL = process.env.LOCAL;
+//const mongoURL = process.env.MONGOURL;
+const mongoURL = process.env.LOCAL;
 
 mongooes.connect(mongoURL, {
     useNewUrlParser: true,
